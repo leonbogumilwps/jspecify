@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>500 - Interner Serverfehler</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Ups! Etwas ist schiefgelaufen.</h1>
+    <p>Interner Serverfehler (500)</p>
+    <div th:if="${catImage}">
+        <img alt="Traurige Katze" class="error-image" th:src="${catImage}">
+    </div>
+    <a class="button" th:href="@{/}">Zurück zur Startseite</a>
+</div>
+</body>
+</html>
