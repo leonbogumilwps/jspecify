@@ -1,4 +1,4 @@
-package wps.lbo.jspecify;
+package wps.lbo.jspecify.web;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;

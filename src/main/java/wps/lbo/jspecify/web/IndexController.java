@@ -1,7 +1,8 @@
-package wps.lbo.jspecify;
+package wps.lbo.jspecify.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import wps.lbo.jspecify.customer.service.CustomerService;
 
 @Controller
 public class IndexController
