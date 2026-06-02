@@ -1,4 +1,4 @@
-package de.lbo.jspecify_demo;
+package wps.lbo.jspecify;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 @WebMvcTest(IndexController.class)
-@Import(ExceptionHandlerAdvice.class)
+@Import({ ExceptionHandlerAdvice.class, CustomerService.class })
 class ExceptionHandlerAdviceTest
 {
 
@@ -23,7 +23,7 @@ class ExceptionHandlerAdviceTest
 	@Test
 	void testHandleError() throws Exception
 	{
-		mockMvc.perform(get("/trigger-error"))
+		mockMvc.perform(get("/load-customer"))
 				.andExpect(status().isOk())
 				.andExpect(view().name("500"))
 				.andExpect(model().attributeExists("catImage"))

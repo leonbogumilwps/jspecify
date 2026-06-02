@@ -1,12 +1,14 @@
-package de.lbo.jspecify_demo;
+package wps.lbo.jspecify;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JspecifyDemoApplication {
+public class JspecifyDemoApplication
+{
 
-	public static void main(String[] args) {
+	static void main(String[] args)
+	{
 		SpringApplication.run(JspecifyDemoApplication.class, args);
 	}
 

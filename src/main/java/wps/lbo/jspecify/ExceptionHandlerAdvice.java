@@ -1,24 +1,20 @@
-package de.lbo.jspecify_demo;
+package wps.lbo.jspecify;
 
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import java.util.Random;
-
 @ControllerAdvice
 public class ExceptionHandlerAdvice extends ResponseEntityExceptionHandler
 {
-
-	private final Random random = new Random();
+	private int currentCatNumber = 0;
 
 	@ExceptionHandler(Exception.class)
-	public String handleError(HttpServletRequest request, Model model)
+	public String handleError(Model model)
 	{
-		int catNumber = random.nextInt(3) + 1;
-		model.addAttribute("catImage", "/images/sad-cat-" + catNumber + ".jpeg");
+		model.addAttribute("catImage", "/images/sad-cat-" + currentCatNumber + ".jpeg");
+		currentCatNumber = (currentCatNumber + 1) % 3;
 		return "500";
 	}
 

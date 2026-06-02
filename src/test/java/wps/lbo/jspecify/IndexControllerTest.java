@@ -1,8 +1,9 @@
-package de.lbo.jspecify_demo;
+package wps.lbo.jspecify;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.containsString;
@@ -11,7 +12,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
-@WebMvcTest
+@WebMvcTest(IndexController.class)
+@Import(CustomerService.class)
 class IndexControllerTest
 {
 
@@ -25,6 +27,14 @@ class IndexControllerTest
 				.andExpect(status().isOk())
 				.andExpect(view().name("index"))
 				.andExpect(content().string(containsString("Hello World")));
+	}
+
+	@Test
+	void testTriggerErrorCausesNpe() throws Exception
+	{
+		mockMvc.perform(get("/load-customer"))
+				.andExpect(status().isOk())
+				.andExpect(view().name("500"));
 	}
 
 }
