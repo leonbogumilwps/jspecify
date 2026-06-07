@@ -25,7 +25,7 @@ class ExceptionHandlerAdviceTest
 	void testHandleError() throws Exception
 	{
 		mockMvc.perform(get("/load-customer"))
-				.andExpect(status().isOk())
+				.andExpect(status().isInternalServerError())
 				.andExpect(view().name("500"))
 				.andExpect(model().attributeExists("catImage"))
 				.andExpect(model().attribute("catImage", startsWith("/images/sad-cat-")));

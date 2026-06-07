@@ -34,7 +34,7 @@ class IndexControllerTest
 	void testTriggerErrorCausesNpe() throws Exception
 	{
 		mockMvc.perform(get("/load-customer"))
-				.andExpect(status().isOk())
+				.andExpect(status().isInternalServerError())
 				.andExpect(view().name("500"));
 	}
 
