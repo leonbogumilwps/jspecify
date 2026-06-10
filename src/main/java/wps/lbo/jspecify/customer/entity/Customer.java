@@ -1,6 +1,8 @@
 package wps.lbo.jspecify.customer.entity;
 
-public record Customer(Long id, String name, String status)
+import org.jspecify.annotations.Nullable;
+
+public record Customer(Long id, @Nullable String name, String status)
 {
 
 }

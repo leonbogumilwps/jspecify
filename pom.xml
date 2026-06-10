@@ -53,13 +53,13 @@
                 <extensions>true</extensions>
                 <configuration>
                     <!-- <requireExplicitNullMarking>false</requireExplicitNullMarking> -->
-                    <!--<outputDirectory>${project.basedir}/src/main/java</outputDirectory>-->
+                    <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
                 </configuration>
                 <executions>
                     <execution>
                         <goals>
                             <goal>configure</goal>
-                            <!-- <goal>generate-package-info</goal> -->
+                            <goal>generate-package-info</goal>
                         </goals>
                     </execution>
                 </executions>

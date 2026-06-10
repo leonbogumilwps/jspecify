@@ -24,7 +24,12 @@ public class IndexController
 	@GetMapping("/load-customer")
 	public String loadCustomer()
 	{
-		var currentCustomer = customerService.getCustomer(1L).name().toUpperCase();
+		var name = customerService.getCustomer(1L).name();
+		if (name == null)
+		{
+			return "success";
+		}
+		var currentCustomer = name.toUpperCase();
 		IO.println(currentCustomer);
 		return "success";
 	}
