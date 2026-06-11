@@ -22,7 +22,7 @@ public class IndexController
 	}
 
 	@GetMapping("/load-customer")
-	public String triggerError()
+	public String loadCustomer()
 	{
 		return customerService.getCustomer(1L).name().toUpperCase();
 	}
